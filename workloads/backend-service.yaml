@@ -1,0 +1,17 @@
+# backend service
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-service
+  namespace: webapp-dev
+  labels:
+    component: mysql
+spec:
+  selector:
+    app: mysql
+    component: mysql
+  ports:
+  - protocol: TCP
+    port: 3306
+    targetPort: 3306

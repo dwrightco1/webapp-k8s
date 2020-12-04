@@ -1,0 +1,46 @@
+# frontend deployment
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp
+  namespace: webapp-dev
+  creationTimestamp: null
+  labels:
+    app: webapp
+    component: webapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webapp
+      component: webapp
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: webapp
+        component: webapp
+    spec:
+      containers:
+      - image: dyvantage01/webapp:latest
+        name: webapp
+        resources:
+          limits:
+            memory: '256Mi'
+            cpu: '500m'
+          requests:
+            memory: '32Mi'
+            cpu: '100m'
+        env:
+          - name: WEBAPP_DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: webapp-secrets
+                key: WEBAPP_DB_PASSWORD
+        ports:
+        - containerPort: 81
+        envFrom:
+        - configMapRef:
+            name: webapp-configmap

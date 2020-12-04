@@ -1,0 +1,18 @@
+# frontent service
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp-service
+  namespace: webaapp-dev
+  labels:
+    component: webapp
+spec:
+  selector:
+    app: webapp
+    component: webapp
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 81
+  type: NodePort
