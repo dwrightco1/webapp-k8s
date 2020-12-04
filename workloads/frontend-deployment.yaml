@@ -8,6 +8,8 @@ metadata:
   labels:
     app: webapp
     component: webapp
+  annotations:
+    fluxcd.io/automated: 'true'
 spec:
   replicas: 1
   selector:
