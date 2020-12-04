@@ -1,11 +1,10 @@
-# frontend deployment
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: webapp
   namespace: webapp-dev
-  creationTimestamp: null
+  creationTimestamp:
   labels:
     app: webapp
     component: webapp
@@ -18,7 +17,7 @@ spec:
   strategy: {}
   template:
     metadata:
-      creationTimestamp: null
+      creationTimestamp:
       labels:
         app: webapp
         component: webapp
@@ -34,11 +33,11 @@ spec:
             memory: '32Mi'
             cpu: '100m'
         env:
-          - name: WEBAPP_DB_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: webapp-secrets
-                key: WEBAPP_DB_PASSWORD
+        - name: WEBAPP_DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: webapp-secrets
+              key: WEBAPP_DB_PASSWORD
         ports:
         - containerPort: 81
         envFrom:
