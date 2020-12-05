@@ -3,7 +3,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: webapp
-  namespace: webapp-dev
   creationTimestamp:
   labels:
     app: webapp
@@ -25,7 +24,7 @@ spec:
         component: webapp
     spec:
       containers:
-      - image: dyvantage01/webapp:latest
+      - image: dyvantage01/webapp01:version-1.0.1
         name: webapp
         resources:
           limits:
