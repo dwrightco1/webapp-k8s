@@ -22,7 +22,7 @@ spec:
         component: webapp
     spec:
       containers:
-      - image: dyvantage01/webapp01:version-1.0.1
+      - image: dyvantage01/webapp01:version-1.0.2
         name: webapp
         resources:
           limits:
