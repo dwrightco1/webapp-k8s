@@ -4,6 +4,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: webapp-configmap
+  namespace: webapp-dev
 data:
   WEBAPP_WEB_PORT: "81"
   WEBAPP_DB_USER: "root"
